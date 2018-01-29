@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GO! Gent</string>
+    <string name="login">Login</string>
+    <string name="e_mailadres">e-mailadres</string>
+    <string name="wachtwoord">wachtwoord</string>
+    <string name="nieuwe_rit">Nieuwe rit</string>
+    <string name="bus">bus</string>
+    <string name="selecteer_bus">Selecteer een bus:</string>
+</resources>
