@@ -16,8 +16,8 @@ import com.example.bussysteemgogent.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ConstraintLayout full;
-    private Button login;
+    ConstraintLayout full;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
