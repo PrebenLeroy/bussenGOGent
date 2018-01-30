@@ -1,4 +1,4 @@
-package com.example.bussysteemgogent;
+package com.example.bussysteemgogent.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,6 +7,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.bussysteemgogent.R;
 
 /**
  * Created by prebe on 29/01/2018.

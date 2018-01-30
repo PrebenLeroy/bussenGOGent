@@ -1,6 +1,8 @@
-package com.example.bussysteemgogent;
+package com.example.bussysteemgogent.activities;
 
 import android.content.DialogInterface;
+import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.example.bussysteemgogent.R;
+import com.example.bussysteemgogent.persistency.BusContract;
 
 import java.util.ArrayList;
 
@@ -29,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner = (Spinner) dialog.findViewById(R.id.spinner);
 
         ArrayList<String> list = new ArrayList<>();
-        list.add("1-AAA-123");
-        list.add("1-BBB-123");
-        list.add("1-CCC-123");
+
+        list = getAllBusses();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -51,5 +55,34 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private ArrayList<String> getAllBusses() {
+        ArrayList<String> list = new ArrayList<>();
+        String[] projection = {
+                BusContract.BusEntry._ID,
+                BusContract.BusEntry.COLUMN_NUMMERPLAAT
+        };
+
+        String selection = null;
+        String[] selectionArgs = null;
+
+        String sortOrder = null;
+
+        Uri uri = BusContract.BusEntry.CONTENT_URI;
+
+        Cursor cursor = getContentResolver().query(uri, projection, selection, selectionArgs, sortOrder);
+
+        if (cursor != null) {
+            try {
+                while(cursor.moveToNext()) {
+                    list.add(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.COLUMN_NUMMERPLAAT)));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+
+        return list;
     }
 }
