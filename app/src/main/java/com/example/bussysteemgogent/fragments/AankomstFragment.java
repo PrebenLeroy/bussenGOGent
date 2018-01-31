@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
@@ -17,6 +18,7 @@ import com.example.bussysteemgogent.R;
 public class AankomstFragment extends Fragment {
 
     Button btnSamenvatting;
+    EditText aankomstPlaats, uur, km;
 
     public AankomstFragment() {
         // Required empty public constructor
@@ -32,6 +34,13 @@ public class AankomstFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_aankomst, container, false);
+
+        this.aankomstPlaats = (EditText) v.findViewById(R.id.aankomstPlaats);
+
+        this.uur = (EditText) v.findViewById(R.id.aankomstUur);
+
+        this.km = (EditText) v.findViewById(R.id.aankomstKm);
+
         this.btnSamenvatting = (Button) v.findViewById(R.id.button);
         this.btnSamenvatting.setOnClickListener(new View.OnClickListener() {
             @Override
