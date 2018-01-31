@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
 import com.example.bussysteemgogent.adapters.ViewPagerAdapter;
 import com.example.bussysteemgogent.fragments.AankomstFragment;
@@ -15,7 +16,7 @@ import com.example.bussysteemgogent.fragments.StartFragment;
  * Created by prebe on 31/01/2018.
  */
 
-public class RitActivity extends AppCompatActivity {
+public class RitActivity extends AppCompatActivity implements MyListener {
 
     private String nummerplaat;
     private TabLayout tabLayout;
@@ -42,5 +43,20 @@ public class RitActivity extends AppCompatActivity {
         adapter.addFragment(new AankomstFragment(), "Bestemming");
         adapter.addFragment(new SamenvattingFragment(), "Samenvatting");
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void goToAankomstTab() {
+        viewPager.setCurrentItem(1, false);
+    }
+
+    @Override
+    public void goToSamenvattingTab() {
+        viewPager.setCurrentItem(2, false);
+    }
+
+    @Override
+    public void goToMain() {
+        onBackPressed();
     }
 }

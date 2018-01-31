@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
 
 /**
@@ -17,6 +19,7 @@ import com.example.bussysteemgogent.R;
 public class StartFragment extends Fragment {
 
     Spinner soort;
+    Button btnAankomst;
 
     public StartFragment() {
         // Required empty public constructor
@@ -37,6 +40,15 @@ public class StartFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.soorten, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.soort.setAdapter(adapter);
+
+        this.btnAankomst = (Button) v.findViewById(R.id.button);
+        this.btnAankomst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyListener listener = (MyListener) getActivity();
+                listener.goToAankomstTab();
+            }
+        });
 
         return v;
     }

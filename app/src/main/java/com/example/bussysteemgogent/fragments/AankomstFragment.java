@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
 
 /**
@@ -13,6 +15,9 @@ import com.example.bussysteemgogent.R;
  */
 
 public class AankomstFragment extends Fragment {
+
+    Button btnSamenvatting;
+
     public AankomstFragment() {
         // Required empty public constructor
     }
@@ -26,6 +31,15 @@ public class AankomstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_aankomst, container, false);
+        View v =  inflater.inflate(R.layout.fragment_aankomst, container, false);
+        this.btnSamenvatting = (Button) v.findViewById(R.id.button);
+        this.btnSamenvatting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyListener listener = (MyListener) getActivity();
+                listener.goToSamenvattingTab();
+            }
+        });
+        return v;
     }
 }
