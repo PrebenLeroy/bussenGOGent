@@ -58,7 +58,9 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                listener.goToAankomstTab();
+                listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),
+                        tijd.getText().toString(), plaats.getText().toString(),
+                        aantalLeerlingen.getText().toString(), km.getText().toString());
             }
         });
 

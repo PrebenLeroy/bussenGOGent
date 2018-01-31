@@ -5,7 +5,7 @@ package com.example.bussysteemgogent;
  */
 
 public interface MyListener {
-    public void goToAankomstTab();
-    public void goToSamenvattingTab();
+    public void goToAankomstTab(String soort, String datum, String tijd, String plaats, String aantalLeerlingen, String km);
+    public void goToSamenvattingTab(String aankomstPlaats, String aankomstUur, String aankomstKm);
     public void goToMain();
 }

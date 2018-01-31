@@ -46,7 +46,7 @@ public class AankomstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                listener.goToSamenvattingTab();
+                listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());
             }
         });
         return v;
