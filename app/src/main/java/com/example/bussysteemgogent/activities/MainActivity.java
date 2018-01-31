@@ -1,6 +1,7 @@
 package com.example.bussysteemgogent.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button btnStart;
+    Spinner spinner;
     private  ArrayList<String> list;
 
     @Override
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         final LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         final View dialog = inflater.inflate(R.layout.spinner_bus, null);
 
-        Spinner spinner = (Spinner) dialog.findViewById(R.id.spinner);
+        spinner = (Spinner) dialog.findViewById(R.id.spinner);
 
         this.list = new ArrayList<>();
 
@@ -53,7 +55,15 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         new AlertDialog.Builder(MainActivity.this)
-                .setView(dialog).setPositiveButton("Ok", null).setNegativeButton(android.R.string.cancel, null).show();
+                .setView(dialog).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String nummerplaat = spinner.getSelectedItem().toString();
+                Intent intent = new Intent(MainActivity.this, RitActivity.class);
+                intent.putExtra("bus", nummerplaat);
+                startActivity(intent);
+            }
+        }).setNegativeButton(android.R.string.cancel, null).show();
     }
 
 
