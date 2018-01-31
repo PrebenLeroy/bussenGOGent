@@ -1,9 +1,15 @@
 package com.example.bussysteemgogent.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.bussysteemgogent.R;
+import com.example.bussysteemgogent.adapters.ViewPagerAdapter;
+import com.example.bussysteemgogent.fragments.AankomstFragment;
+import com.example.bussysteemgogent.fragments.SamenvattingFragment;
+import com.example.bussysteemgogent.fragments.StartFragment;
 
 /**
  * Created by prebe on 31/01/2018.
@@ -12,6 +18,8 @@ import com.example.bussysteemgogent.R;
 public class RitActivity extends AppCompatActivity {
 
     private String nummerplaat;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +27,20 @@ public class RitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rit);
         this.nummerplaat = getIntent().getStringExtra("bus");
         getSupportActionBar().setTitle("Bus: " + nummerplaat);
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new StartFragment(), "Vertrek");
+        adapter.addFragment(new AankomstFragment(), "Bestemming");
+        adapter.addFragment(new SamenvattingFragment(), "Samenvatting");
+        viewPager.setAdapter(adapter);
     }
 }

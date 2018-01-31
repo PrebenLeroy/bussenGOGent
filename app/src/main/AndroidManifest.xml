@@ -23,7 +23,9 @@
         <activity android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name=".activities.RitActivity" />
+        <activity android:name=".activities.RitActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <provider android:name=".persistency.BusProvider"
             android:exported="false"
