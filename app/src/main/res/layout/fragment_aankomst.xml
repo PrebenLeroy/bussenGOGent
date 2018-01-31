@@ -14,7 +14,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/kilometerstand_text"
-        app:layout_constraintBottom_toTopOf="@+id/editText9"
+        app:layout_constraintBottom_toTopOf="@+id/aankomstKm"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -29,9 +29,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <TextView
         android:id="@+id/textView6"
@@ -40,11 +41,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/aankomsttijd"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
+        app:layout_constraintBottom_toTopOf="@+id/aankomstUur"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/aankomstUur"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -65,11 +66,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/aankomstplaats"
-        app:layout_constraintBottom_toTopOf="@+id/editText7"
+        app:layout_constraintBottom_toTopOf="@+id/aankomstPlaats"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/aankomstPlaats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -95,10 +96,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/aankomstKm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="147dp"
+        android:layout_marginBottom="122dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"

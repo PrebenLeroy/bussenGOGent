@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.bussysteemgogent.R;
 
@@ -13,6 +15,8 @@ import com.example.bussysteemgogent.R;
  */
 
 public class StartFragment extends Fragment {
+
+    Spinner soort;
 
     public StartFragment() {
         // Required empty public constructor
@@ -27,6 +31,13 @@ public class StartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false);
+        View v = inflater.inflate(R.layout.fragment_start, container, false);
+
+        this.soort = (Spinner) v.findViewById(R.id.spinnerSoort);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.soorten, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.soort.setAdapter(adapter);
+
+        return v;
     }
 }

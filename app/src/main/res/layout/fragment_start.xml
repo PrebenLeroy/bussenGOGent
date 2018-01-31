@@ -14,7 +14,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="Kilometerstand:"
-        app:layout_constraintBottom_toTopOf="@+id/editText9"
+        app:layout_constraintBottom_toTopOf="@+id/startKm"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -31,11 +31,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText4"
-        android:layout_width="243dp"
+        android:id="@+id/datum"
+        android:layout_width="221dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -44,7 +44,7 @@
         android:hint="@string/datum_edit"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/editText6"
+        app:layout_constraintEnd_toStartOf="@+id/vertrekUur"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,12 +55,12 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/datum"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintBottom_toTopOf="@+id/datum"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
-        android:layout_width="119dp"
+        android:id="@+id/vertrekUur"
+        android:layout_width="107dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -77,11 +77,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/vertrekplaats"
-        app:layout_constraintBottom_toTopOf="@+id/editText7"
+        app:layout_constraintBottom_toTopOf="@+id/vertrekplaats"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/vertrekplaats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/aantalLeerlingen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -103,7 +103,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="@string/aantal"
-        android:inputType="numberSigned"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -116,7 +116,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/aantal_leerlingen"
-        app:layout_constraintBottom_toTopOf="@+id/editText8"
+        app:layout_constraintBottom_toTopOf="@+id/aantalLeerlingen"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -126,11 +126,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/soort_vervoer"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerSoort"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerSoort"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -154,7 +154,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/startKm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
