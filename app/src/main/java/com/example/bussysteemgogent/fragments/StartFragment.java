@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
@@ -93,8 +92,8 @@ public class StartFragment extends Fragment {
                         || km.getText().toString() == "" || km.getText().toString().isEmpty()
                         || !tijd.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")
                         || !datum.getText().toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\\d\\d")) {
-                    Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
                     listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),
                             tijd.getText().toString(), plaats.getText().toString(),
                             aantalLeerlingen.getText().toString(), km.getText().toString());

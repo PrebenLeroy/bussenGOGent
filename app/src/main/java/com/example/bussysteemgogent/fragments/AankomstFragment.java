@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
@@ -34,7 +33,7 @@ public class AankomstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_aankomst, container, false);
+        View v = inflater.inflate(R.layout.fragment_aankomst, container, false);
 
         this.aankomstPlaats = (EditText) v.findViewById(R.id.aankomstPlaats);
 
@@ -47,26 +46,20 @@ public class AankomstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                if(aankomstPlaats.getText().toString() == "" || aankomstPlaats.getText().toString().isEmpty()){
-
+                if (aankomstPlaats.getText().toString() == "" || aankomstPlaats.getText().toString().isEmpty()) {
                     aankomstPlaats.setError("Bestemming is verplicht");
-
                 }
-                if(uur.getText().toString() == "" || uur.getText().toString().isEmpty() || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
-
+                if (uur.getText().toString() == "" || uur.getText().toString().isEmpty() || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
                     uur.setError("Aankomstuur is verplicht en is van de vorm \"uu:mm\"");
-
                 }
-                if(km.getText().toString() == "" || km.getText().toString().isEmpty()){
-
+                if (km.getText().toString() == "" || km.getText().toString().isEmpty()) {
                     km.setError("Kilometerstand bij aankomst is verplicht");
-
                 }
-                if(aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
+                if (aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
                         || aankomstPlaats.getText().toString().isEmpty() || uur.getText().toString().isEmpty() || km.getText().toString().isEmpty()
-                        || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")){
-                    Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
-                } else {
+                        || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
+                }
+                else {
                     listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());
                 }
             }
