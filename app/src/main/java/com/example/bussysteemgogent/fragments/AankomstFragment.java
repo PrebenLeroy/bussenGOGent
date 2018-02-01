@@ -47,11 +47,24 @@ public class AankomstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                if(aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
-                        || aankomstPlaats.getText().toString().isEmpty() || uur.getText().toString().isEmpty() || km.getText().toString().isEmpty()){
-                    uur.setError("Aankomstuur is verplicht");
+                if(aankomstPlaats.getText().toString() == "" || aankomstPlaats.getText().toString().isEmpty()){
+
                     aankomstPlaats.setError("Bestemming is verplicht");
+
+                }
+                if(uur.getText().toString() == "" || uur.getText().toString().isEmpty() || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
+
+                    uur.setError("Aankomstuur is verplicht en moet van de vorm \"uu:mm\" zijn");
+
+                }
+                if(km.getText().toString() == "" || km.getText().toString().isEmpty()){
+
                     km.setError("Kilometerstand bij aankomst is verplicht");
+
+                }
+                if(aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
+                        || aankomstPlaats.getText().toString().isEmpty() || uur.getText().toString().isEmpty() || km.getText().toString().isEmpty()
+                        || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")){
                     Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
                 } else {
                     listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());

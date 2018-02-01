@@ -41,7 +41,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="@string/datum_edit"
+        android:hint="@string/dd_mm_jjjj"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toStartOf="@+id/vertrekUur"
@@ -65,7 +65,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="@string/tijd"
+        android:hint="@string/uu_mm"
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent" />

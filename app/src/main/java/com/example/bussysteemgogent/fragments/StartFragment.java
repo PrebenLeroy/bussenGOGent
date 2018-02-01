@@ -59,15 +59,37 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                if(soort.getSelectedItem().toString() == "" || soort.getSelectedItem().toString().isEmpty() || datum.getText().toString() == "" || datum.getText().toString().isEmpty()
-                        || tijd.getText().toString() == "" || tijd.getText().toString().isEmpty() || plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()
-                        || aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty() || km.getText().toString() == ""
-                        || km.getText().toString().isEmpty()){
+                if (datum.getText().toString() == "" || datum.getText().toString().isEmpty()) {
+
                     datum.setError("Datum is verplicht");
+
+                }
+                if (tijd.getText().toString() == "" || tijd.getText().toString().isEmpty()) {
+
                     tijd.setError("Vertrekuur is verplicht");
+
+                }
+                if (plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()) {
+
                     plaats.setError("Vertrekplaats is verplicht");
+
+                }
+                if (aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty()) {
+
                     aantalLeerlingen.setError("Het aantal leerlingen is verplicht");
+
+                }
+                if (km.getText().toString() == "" || km.getText().toString().isEmpty()) {
+
                     km.setError("Kilometerstand bij vertrek is verplicht");
+
+                }
+                if (soort.getSelectedItem().toString() == "" || soort.getSelectedItem().toString().isEmpty()
+                        || datum.getText().toString() == "" || datum.getText().toString().isEmpty()
+                        || tijd.getText().toString() == "" || tijd.getText().toString().isEmpty()
+                        || plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()
+                        || aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty()
+                        || km.getText().toString() == "" || km.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
                 } else {
                     listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),

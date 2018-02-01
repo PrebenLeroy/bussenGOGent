@@ -33,4 +33,6 @@
     <string name="aankomst">Aankomst:</string>
     <string name="tijd_text">Tijd:</string>
     <string name="log_out">Afmelden</string>
+    <string name="uu_mm">uu:mm</string>
+    <string name="dd_mm_jjjj">dd/mm/jjjj</string>
 </resources>
