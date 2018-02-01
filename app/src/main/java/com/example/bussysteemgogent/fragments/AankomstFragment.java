@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
@@ -46,7 +47,12 @@ public class AankomstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());
+                if(aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
+                        || aankomstPlaats.getText().toString().isEmpty() || uur.getText().toString().isEmpty() || km.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
+                } else {
+                    listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());
+                }
             }
         });
         return v;

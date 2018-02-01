@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.bussysteemgogent.MyListener;
 import com.example.bussysteemgogent.R;
@@ -58,9 +59,16 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),
-                        tijd.getText().toString(), plaats.getText().toString(),
-                        aantalLeerlingen.getText().toString(), km.getText().toString());
+                if(soort.getSelectedItem().toString() == "" || soort.getSelectedItem().toString().isEmpty() || datum.getText().toString() == "" || datum.getText().toString().isEmpty()
+                        || tijd.getText().toString() == "" || tijd.getText().toString().isEmpty() || plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()
+                        || aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty() || km.getText().toString() == ""
+                        || km.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
+                } else {
+                    listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),
+                            tijd.getText().toString(), plaats.getText().toString(),
+                            aantalLeerlingen.getText().toString(), km.getText().toString());
+                }
             }
         });
 
