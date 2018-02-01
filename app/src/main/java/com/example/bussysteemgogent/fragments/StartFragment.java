@@ -59,14 +59,15 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyListener listener = (MyListener) getActivity();
-                if (datum.getText().toString() == "" || datum.getText().toString().isEmpty()) {
+                if (datum.getText().toString() == "" || datum.getText().toString().isEmpty()
+                        || !datum.getText().toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\\d\\d")) {
 
-                    datum.setError("Datum is verplicht");
+                    datum.setError("Datum is verplicht en is van de vorm \"dd/mm/jjjj\"");
 
                 }
-                if (tijd.getText().toString() == "" || tijd.getText().toString().isEmpty()) {
+                if (tijd.getText().toString() == "" || tijd.getText().toString().isEmpty() || !tijd.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
 
-                    tijd.setError("Vertrekuur is verplicht");
+                    tijd.setError("Vertrekuur is verplicht en is van de vorm \"uu:mm\"");
 
                 }
                 if (plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()) {
@@ -89,7 +90,9 @@ public class StartFragment extends Fragment {
                         || tijd.getText().toString() == "" || tijd.getText().toString().isEmpty()
                         || plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()
                         || aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty()
-                        || km.getText().toString() == "" || km.getText().toString().isEmpty()) {
+                        || km.getText().toString() == "" || km.getText().toString().isEmpty()
+                        || !tijd.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")
+                        || !datum.getText().toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)\\d\\d")) {
                     Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
                 } else {
                     listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),

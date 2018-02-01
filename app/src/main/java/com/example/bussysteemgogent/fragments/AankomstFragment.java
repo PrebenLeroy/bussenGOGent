@@ -54,7 +54,7 @@ public class AankomstFragment extends Fragment {
                 }
                 if(uur.getText().toString() == "" || uur.getText().toString().isEmpty() || !uur.getText().toString().matches("(((0|1)[0-9])|(2[0-3])):[0-5][0-9]")) {
 
-                    uur.setError("Aankomstuur is verplicht en moet van de vorm \"uu:mm\" zijn");
+                    uur.setError("Aankomstuur is verplicht en is van de vorm \"uu:mm\"");
 
                 }
                 if(km.getText().toString() == "" || km.getText().toString().isEmpty()){
