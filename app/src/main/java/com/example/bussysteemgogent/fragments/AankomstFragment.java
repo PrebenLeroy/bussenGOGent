@@ -49,6 +49,9 @@ public class AankomstFragment extends Fragment {
                 MyListener listener = (MyListener) getActivity();
                 if(aankomstPlaats.getText().toString() == "" || uur.getText().toString() == "" || km.getText().toString() == ""
                         || aankomstPlaats.getText().toString().isEmpty() || uur.getText().toString().isEmpty() || km.getText().toString().isEmpty()){
+                    uur.setError("Aankomstuur is verplicht");
+                    aankomstPlaats.setError("Bestemming is verplicht");
+                    km.setError("Kilometerstand bij aankomst is verplicht");
                     Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
                 } else {
                     listener.goToSamenvattingTab(aankomstPlaats.getText().toString(), uur.getText().toString(), km.getText().toString());

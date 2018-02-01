@@ -63,6 +63,11 @@ public class StartFragment extends Fragment {
                         || tijd.getText().toString() == "" || tijd.getText().toString().isEmpty() || plaats.getText().toString() == "" || plaats.getText().toString().isEmpty()
                         || aantalLeerlingen.getText().toString() == "" || aantalLeerlingen.getText().toString().isEmpty() || km.getText().toString() == ""
                         || km.getText().toString().isEmpty()){
+                    datum.setError("Datum is verplicht");
+                    tijd.setError("Vertrekuur is verplicht");
+                    plaats.setError("Vertrekplaats is verplicht");
+                    aantalLeerlingen.setError("Het aantal leerlingen is verplicht");
+                    km.setError("Kilometerstand bij vertrek is verplicht");
                     Toast.makeText(getContext(), "Alle velden moeten ingevuld worden", Toast.LENGTH_SHORT).show();
                 } else {
                     listener.goToAankomstTab(soort.getSelectedItem().toString(), datum.getText().toString(),
