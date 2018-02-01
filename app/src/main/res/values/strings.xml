@@ -32,4 +32,5 @@
     <string name="datum_en_tijd">Datum en tijd:</string>
     <string name="aankomst">Aankomst:</string>
     <string name="tijd_text">Tijd:</string>
+    <string name="log_out">Afmelden</string>
 </resources>
