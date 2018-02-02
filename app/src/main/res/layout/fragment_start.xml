@@ -42,7 +42,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="@string/dd_mm_jjjj"
-        android:inputType="date"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toStartOf="@+id/vertrekUur"
         app:layout_constraintHorizontal_bias="0.0"
