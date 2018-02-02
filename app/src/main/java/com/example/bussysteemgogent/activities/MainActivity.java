@@ -10,13 +10,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.bussysteemgogent.R;
 import com.example.bussysteemgogent.persistency.BusContract;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -25,11 +28,19 @@ public class MainActivity extends AppCompatActivity {
     Button btnStart;
     Spinner spinner;
     private  ArrayList<String> list;
+    private String user;
+    TextView name;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.user = getIntent().getStringExtra("user");
+
+        this.name = (TextView) findViewById(R.id.naam);
+        this.name.setText(user);
 
         this.btnStart = (Button) findViewById(R.id.btnRit);
 
@@ -46,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.btnLogOut:
+                mAuth.signOut();
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void viewDialog() {
