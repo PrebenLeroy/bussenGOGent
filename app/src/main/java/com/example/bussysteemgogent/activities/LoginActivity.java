@@ -2,6 +2,7 @@ package com.example.bussysteemgogent.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -36,13 +37,12 @@ public class LoginActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getSupportActionBar().hide();
-
         setContentView(R.layout.activity_login);
 
         this.full = findViewById(R.id.full);
-        full.setBackgroundColor(Color.parseColor("#bbeebb"));
+        full.setBackgroundColor(Color.LTGRAY);
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#bbeebb")));
 
         this.email = (EditText) findViewById(R.id.editText);
 
@@ -59,10 +59,14 @@ public class LoginActivity extends AppCompatActivity implements
         if (i == R.id.loginbtn) {
             this.emailString = email.getText().toString();
             this.passwordString = password.getText().toString();
-            if(emailString == "" || emailString.isEmpty() || passwordString == "" || passwordString.isEmpty()){
-                Toast.makeText(LoginActivity.this, "Gelieve alle velden in te vullen",
-                        Toast.LENGTH_SHORT).show();
-            } else {
+            if(emailString == "" || emailString.isEmpty()){
+                this.email.setError("E-mailadres moet ingevuld worden");
+            }
+            if(passwordString == "" || passwordString.isEmpty()){
+                this.password.setError("Paswoord moet ingevuld worden");
+            }
+            if(emailString == "" || emailString.isEmpty() || passwordString == "" || passwordString.isEmpty()){}
+            else {
                 signIn(emailString, passwordString);
             }
         }
