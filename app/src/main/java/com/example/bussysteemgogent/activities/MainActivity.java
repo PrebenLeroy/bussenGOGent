@@ -7,11 +7,13 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -27,11 +29,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button btnStart;
-    ListView spinner;
+    ListView lv;
     private  ArrayList<String> list;
     private String user;
     TextView name;
     private FirebaseAuth mAuth;
+    private String nummerplaat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,25 +80,22 @@ public class MainActivity extends AppCompatActivity {
         final LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         final View dialog = inflater.inflate(R.layout.spinner_bus, null);
 
-        spinner = (ListView) dialog.findViewById(R.id.spinner);
+        lv = (ListView) dialog.findViewById(R.id.spinner);
 
         this.list = new ArrayList<>();
 
         this.list = getAllBusses();
 
-        String[] bussen = this.list.toArray(new String[this.list.size()]);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_single_choice, list);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_single_choice, bussen);
-
-        spinner.setAdapter(adapter);
+        lv.setAdapter(adapter);
 
         new AlertDialog.Builder(MainActivity.this)
                 .setView(dialog).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String nummerplaat = spinner.getSelectedItem().toString();
                 Intent intent = new Intent(MainActivity.this, RitActivity.class);
-                intent.putExtra("bus", nummerplaat);
+                intent.putExtra("bus", (String) lv.getItemAtPosition(lv.getCheckedItemPosition()));
                 startActivity(intent);
             }
         }).setNegativeButton(android.R.string.cancel, null).show();
