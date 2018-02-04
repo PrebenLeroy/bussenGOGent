@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Button btnStart;
-    Spinner spinner;
+    ListView spinner;
     private  ArrayList<String> list;
     private String user;
     TextView name;
@@ -76,14 +77,15 @@ public class MainActivity extends AppCompatActivity {
         final LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         final View dialog = inflater.inflate(R.layout.spinner_bus, null);
 
-        spinner = (Spinner) dialog.findViewById(R.id.spinner);
+        spinner = (ListView) dialog.findViewById(R.id.spinner);
 
         this.list = new ArrayList<>();
 
         this.list = getAllBusses();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String[] bussen = this.list.toArray(new String[this.list.size()]);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_single_choice, bussen);
 
         spinner.setAdapter(adapter);
 
