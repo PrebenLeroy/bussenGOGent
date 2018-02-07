@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(MainActivity.this, RitActivity.class);
                 intent.putExtra("bus", (String) lv.getItemAtPosition(lv.getCheckedItemPosition()));
+                intent.putExtra("passw", getIntent().getStringExtra("passw"));
                 startActivity(intent);
             }
         }).setNegativeButton(android.R.string.cancel, null).show();

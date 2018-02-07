@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity implements
                             LoginActivity.this.password.setText("");
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("user", user.getEmail());
+                            intent.putExtra("passw", passwordString);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

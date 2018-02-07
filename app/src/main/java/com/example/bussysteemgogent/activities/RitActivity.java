@@ -34,6 +34,9 @@ public class RitActivity extends AppCompatActivity implements MyListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rit);
+
+        Log.i("passw", getIntent().getStringExtra("passw"));
+
         this.nummerplaat = getIntent().getStringExtra("bus");
         getSupportActionBar().setTitle("Bus: " + nummerplaat);
 
