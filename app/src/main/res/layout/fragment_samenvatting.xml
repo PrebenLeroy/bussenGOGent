@@ -66,6 +66,7 @@
 
             <TextView
                 android:id="@+id/txtDT"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -79,7 +80,7 @@
 
             <TextView
                 android:id="@+id/txtVertrek"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -92,6 +93,7 @@
 
             <TextView
                 android:id="@+id/txtAantalLeerlingen"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -105,6 +107,7 @@
 
             <TextView
                 android:id="@+id/txtSoort"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -118,6 +121,7 @@
 
             <TextView
                 android:id="@+id/txtKilometersVertrek"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -140,6 +144,7 @@
 
             <TextView
                 android:id="@+id/txtTijd"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -153,7 +158,7 @@
 
             <TextView
                 android:id="@+id/txtAankomst"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -166,6 +171,7 @@
 
             <TextView
                 android:id="@+id/txtKilometersAankomst"
+                android:layout_width="wrap_content"
                 android:textSize="18sp" />
         </TableRow>
 
