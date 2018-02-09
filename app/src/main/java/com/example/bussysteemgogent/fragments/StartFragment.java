@@ -142,8 +142,6 @@ public class StartFragment extends Fragment {
         TextView title = (TextView) dialog.findViewById(R.id.textView4);
         title.setText(R.string.selecteer_een_plaats);
 
-        Log.i("lijstlengte", String.format("%d", list.length));
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_single_choice, list);
 
         lv.setAdapter(adapter);
